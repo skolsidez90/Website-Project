@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#fff6e5">
+  <meta name="description" content="Laundry pickup and delivery in Cebu City. Fresh clothes, fun service.">
+  <title>Scrub-a-Dub Laundry | Fresh clothes, fun service</title>
+  <link rel="icon" href="assets/logo.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://pyscript.net/releases/2026.7.3/core.css">
+  <script type="module" src="https://pyscript.net/releases/2026.7.3/core.js"></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to main content</a>
+  <header class="site-header">
+    <nav class="nav-wrap" aria-label="Main navigation">
+      <a class="brand" href="index.html" aria-label="Scrub-a-Dub Laundry home">
+        <svg class="brand-logo" viewBox="0 0 64 64" role="img" aria-labelledby="logo-title">
+          <title id="logo-title">Smiling washing machine in a bubble</title>
+          <circle cx="32" cy="32" r="29" fill="#2EC4B6" stroke="#1B2A41" stroke-width="4"/>
+          <rect x="17" y="13" width="30" height="38" rx="5" fill="#FFF6E5" stroke="#1B2A41" stroke-width="3"/>
+          <circle cx="23" cy="20" r="2" fill="#FF6B6B"/>
+          <circle cx="29" cy="20" r="2" fill="#FFD23F"/>
+          <circle cx="32" cy="35" r="11" fill="#FFD23F" stroke="#1B2A41" stroke-width="2.5"/>
+          <circle cx="32" cy="35" r="7" fill="#2EC4B6" stroke="#1B2A41" stroke-width="2"/>
+          <circle cx="29.5" cy="34" r="1" fill="#1B2A41"/><circle cx="34.5" cy="34" r="1" fill="#1B2A41"/>
+          <path d="M29 37q3 3 6 0" fill="none" stroke="#1B2A41" stroke-width="1.5" stroke-linecap="round"/>
+        </svg>
+        <span>Scrub-a-Dub<br>Laundry</span>
+      </a>
+      <ul class="nav-links">
+        <li><a class="current" aria-current="page" href="index.html">Home</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="order.html">Book a pickup</a></li>
+        <li><a href="about.html">About &amp; contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main id="main">
+    <section class="hero page-shell" aria-labelledby="hero-title">
+      <div class="hero-copy">
+        <p class="eyebrow">Laundry pickup and delivery · Cebu City</p>
+        <h1 id="hero-title">Dirty clothes?<br>We’ll scrub-a-dub<br>them clean!</h1>
+        <p class="hero-description">Laundry day made easy. We pick up your laundry, give it a fresh clean, and bring it back to you.</p>
+        <div class="button-row">
+          <a class="button button-coral" href="order.html">Book a pickup</a>
+          <a class="button button-light" href="services.html">See our services</a>
+        </div>
+      </div>
+
+      <div class="washer-area">
+        <span class="bubble bubble-one" aria-hidden="true"></span>
+        <span class="bubble bubble-two" aria-hidden="true"></span>
+        <button class="washer-button" id="washer-button" type="button" aria-describedby="washer-help">
+          <span class="washer-top"><span class="washer-dot dot-coral"></span><span class="washer-dot dot-yellow"></span><span class="washer-status" id="washer-status" aria-live="polite">Ready</span></span>
+          <svg class="washer-art" viewBox="0 0 220 230" aria-hidden="true">
+            <rect x="13" y="8" width="194" height="211" rx="27" fill="#2EC4B6" stroke="#1B2A41" stroke-width="5"/>
+            <path d="M16 39h188" stroke="#1B2A41" stroke-width="4"/>
+            <circle cx="39" cy="24" r="8" fill="#FF6B6B" stroke="#1B2A41" stroke-width="3"/>
+            <circle cx="64" cy="24" r="8" fill="#FFD23F" stroke="#1B2A41" stroke-width="3"/>
+            <circle cx="110" cy="128" r="63" fill="#FFD23F" stroke="#1B2A41" stroke-width="5"/>
+            <circle class="washer-drum" cx="110" cy="128" r="48" fill="#FFF6E5" stroke="#1B2A41" stroke-width="4"/>
+            <path d="M64 139q22-26 46-4 24-22 46 4v16a48 48 0 0 1-92 0z" fill="#2EC4B6" stroke="#1B2A41" stroke-width="3"/>
+            <circle cx="94" cy="121" r="4" fill="#1B2A41"/><circle cx="126" cy="121" r="4" fill="#1B2A41"/>
+            <path d="M99 134q11 12 22 0" fill="none" stroke="#1B2A41" stroke-width="4" stroke-linecap="round"/>
+            <circle class="washer-bubble bubble-a" cx="83" cy="99" r="7" fill="#FFF6E5" stroke="#1B2A41" stroke-width="2"/>
+            <circle class="washer-bubble bubble-b" cx="135" cy="93" r="5" fill="#FFF6E5" stroke="#1B2A41" stroke-width="2"/>
+            <path d="M84 213h52" stroke="#1B2A41" stroke-width="5" stroke-linecap="round"/>
+          </svg>
+          <span class="washer-tap">Tap to wash!</span>
+        </button>
+        <p class="washer-help" id="washer-help">Tap the washing machine to start a cycle. Tap again to reset.</p>
+        <span class="bubble bubble-three" aria-hidden="true"></span>
+      </div>
+    </section>
+
+    <section class="video-section page-shell" aria-labelledby="video-title">
+      <div class="video-placeholder">
+        <!-- Replace this marked poster and placeholder with assets/ad.mp4 when the group video is ready. -->
+        <div class="video-placeholder-content">
+          <span class="play-icon" aria-hidden="true">▶</span>
+          <h2 id="video-title">Our 30-second ad goes here</h2>
+          <p>Video placeholder — add your advertisement as <code>assets/ad.mp4</code>.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="how-section" aria-labelledby="how-title">
+      <div class="page-shell section-inner">
+        <p class="eyebrow">Laundry made simple</p>
+        <h2 id="how-title">How it works</h2>
+        <p class="section-intro">Three easy steps from laundry pile to fresh stack.</p>
+        <div class="step-grid">
+          <article class="card step-card"><span class="step-number">1</span><span class="step-emoji" aria-hidden="true">🛍️</span><h3>Book a pickup</h3><p>Choose a pickup time and tell us what needs a wash.</p></article>
+          <article class="card step-card"><span class="step-number">2</span><span class="step-emoji" aria-hidden="true">🫧</span><h3>We wash and fold</h3><p>Our team gives your clothes a careful, fresh clean.</p></article>
+          <article class="card step-card"><span class="step-number">3</span><span class="step-emoji" aria-hidden="true">👕</span><h3>Fresh clothes back</h3><p>We deliver your clean laundry, ready for you to enjoy.</p></article>
+        </div>
+        <a class="button button-navy" href="order.html">Ready to book?</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="page-shell footer-inner">
+      <a class="brand footer-brand" href="index.html">
+        <svg class="brand-logo" viewBox="0 0 64 64" role="img" aria-label="Scrub-a-Dub Laundry logo">
+          <circle cx="32" cy="32" r="29" fill="#2EC4B6" stroke="#FFF6E5" stroke-width="4"/><rect x="17" y="13" width="30" height="38" rx="5" fill="#FFF6E5" stroke="#1B2A41" stroke-width="3"/><circle cx="23" cy="20" r="2" fill="#FF6B6B"/><circle cx="29" cy="20" r="2" fill="#FFD23F"/><circle cx="32" cy="35" r="11" fill="#FFD23F" stroke="#1B2A41" stroke-width="2.5"/><circle cx="32" cy="35" r="7" fill="#2EC4B6" stroke="#1B2A41" stroke-width="2"/><path d="M29 37q3 3 6 0" fill="none" stroke="#1B2A41" stroke-width="1.5" stroke-linecap="round"/>
+        </svg><span>Scrub-a-Dub Laundry</span>
+      </a>
+      <p>Fresh clothes, fun service.</p>
+      <p class="footer-note">Cebu City, Philippines · Prices and contact details will be added as the project grows.</p>
+    </div>
+  </footer>
+
+  <script type="py" src="py/washing_machine.py" config="pyscript.toml"></script>
+</body>
+</html>

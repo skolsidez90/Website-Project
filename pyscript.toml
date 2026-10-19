@@ -1,0 +1,5 @@
+# Keep this simple configuration file shared by the page feature scripts.
+# The current features use only Python's standard library, so no packages
+# need to be installed in the browser.
+packages = []
+

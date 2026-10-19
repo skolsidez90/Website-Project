@@ -1,0 +1,116 @@
+/* Shared Scrub-a-Dub Laundry styles. Keep this file beginner-friendly. */
+:root {
+  --cream: #FFF6E5;
+  --teal: #2EC4B6;
+  --yellow: #FFD23F;
+  --coral: #FF6B6B;
+  --navy: #1B2A41;
+  --white: #FFFFFF;
+  --line: 3px solid var(--navy);
+  --shadow: 5px 5px 0 var(--navy);
+  --heading-font: "Fredoka", "Trebuchet MS", sans-serif;
+  --body-font: "Nunito", Arial, sans-serif;
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { margin: 0; color: var(--navy); background: var(--cream); font-family: var(--body-font); font-size: 1rem; line-height: 1.55; }
+a { color: inherit; }
+button, input, select, textarea { font: inherit; }
+:focus-visible { outline: 3px dashed var(--navy); outline-offset: 4px; }
+.page-shell { width: min(1120px, calc(100% - 40px)); margin-inline: auto; }
+.skip-link { position: absolute; top: -60px; left: 12px; z-index: 10; padding: 10px 14px; background: var(--yellow); border: var(--line); border-radius: 10px; }
+.skip-link:focus { top: 12px; }
+
+.site-header { position: sticky; top: 0; z-index: 5; background: var(--cream); border-bottom: var(--line); }
+.nav-wrap { width: min(1120px, calc(100% - 40px)); min-height: 76px; margin: auto; display: flex; align-items: center; justify-content: space-between; gap: 28px; }
+.brand { display: inline-flex; align-items: center; gap: 10px; color: var(--navy); text-decoration: none; font: 700 1.05rem/1.1 var(--heading-font); }
+.brand-logo { width: 48px; height: 48px; flex: none; }
+.nav-links { display: flex; align-items: center; gap: clamp(10px, 2vw, 26px); margin: 0; padding: 0; list-style: none; }
+.nav-links a { display: inline-block; padding: 8px 3px; text-decoration: none; font-weight: 800; border-bottom: 3px solid transparent; }
+.nav-links a:hover, .nav-links a.current { border-color: var(--coral); }
+
+h1, h2, h3, p { margin-top: 0; }
+h1, h2, h3 { font-family: var(--heading-font); line-height: 1.08; }
+h1 { margin-bottom: 18px; font-size: clamp(2.5rem, 6vw, 4.5rem); letter-spacing: -.025em; }
+h2 { margin-bottom: 12px; font-size: clamp(2rem, 4vw, 3rem); }
+h3 { margin-bottom: 8px; font-size: 1.3rem; }
+.eyebrow { margin-bottom: 12px; font-weight: 800; letter-spacing: .04em; }
+.hero { min-height: 480px; padding-block: 58px; display: grid; grid-template-columns: 1.05fr .95fr; align-items: center; gap: 48px; }
+.hero-description { max-width: 480px; margin-bottom: 24px; }
+.button-row { display: flex; flex-wrap: wrap; gap: 14px; }
+.button { min-height: 48px; padding: 10px 18px; display: inline-flex; align-items: center; justify-content: center; border: var(--line); border-radius: 18px; box-shadow: 3px 3px 0 var(--navy); color: var(--navy); text-decoration: none; font-weight: 900; transition: transform 160ms ease, box-shadow 160ms ease; }
+.button:hover { transform: translate(2px, 2px); box-shadow: 1px 1px 0 var(--navy); }
+.button-coral { background: var(--coral); }
+.button-light { background: var(--white); }
+.button-navy { margin-top: 28px; color: var(--white); background: var(--navy); box-shadow: 3px 3px 0 var(--yellow); }
+
+.washer-area { min-height: 350px; position: relative; display: grid; place-items: center; }
+.washer-button { position: relative; width: min(275px, 80%); padding: 10px 12px 16px; overflow: visible; cursor: pointer; border: var(--line); border-radius: 32px; background: var(--white); box-shadow: 7px 7px 0 var(--yellow); color: var(--navy); }
+.washer-button:hover { transform: translateY(-2px); }
+.washer-top { height: 38px; display: flex; align-items: center; gap: 8px; padding-inline: 5px; border-bottom: 2px solid var(--navy); }
+.washer-dot { width: 19px; height: 19px; border: 2px solid var(--navy); border-radius: 50%; }
+.dot-coral { background: var(--coral); }.dot-yellow { background: var(--yellow); }
+.washer-status { margin-left: auto; min-width: 74px; padding: 3px 9px; border: 2px solid var(--navy); border-radius: 99px; background: var(--cream); font-size: .85rem; font-weight: 900; }
+.washer-art { display: block; width: 100%; max-height: 250px; margin-top: 4px; }
+.washer-tap { position: absolute; top: -14px; right: -30px; padding: 6px 12px; transform: rotate(7deg); border: 2px solid var(--navy); border-radius: 99px; background: var(--yellow); font-weight: 900; }
+.washer-help { position: absolute; bottom: 2px; width: 90%; margin: 0; text-align: center; font-size: .9rem; font-weight: 700; }
+.bubble { position: absolute; width: 28px; height: 28px; border: 2px solid var(--navy); border-radius: 50%; background: var(--white); }
+.bubble-one { top: 28px; left: 4%; }.bubble-two { top: 32px; right: 3%; width: 42px; height: 42px; }.bubble-three { bottom: 32px; left: 15%; width: 20px; height: 20px; background: var(--teal); }
+.washer-button.is-running .washer-drum { transform-origin: 110px 128px; animation: spin 900ms linear infinite; }
+.washer-button.is-running .washer-bubble { animation: rise 1200ms ease-in infinite; }
+.washer-button.is-running .bubble-b { animation-delay: 400ms; }
+.washer-button.is-done { animation: pop 420ms ease-out; }
+@keyframes spin { to { transform: rotate(360deg); } }
+@keyframes rise { from { opacity: 1; transform: translateY(8px); } to { opacity: 0; transform: translateY(-32px); } }
+@keyframes pop { 50% { transform: scale(1.06); } }
+
+.video-section { padding-bottom: 68px; }
+.video-placeholder { min-height: 300px; display: grid; place-items: center; padding: 28px; border: 8px solid var(--navy); border-radius: 28px; background: var(--teal); box-shadow: 7px 7px 0 var(--yellow); text-align: center; }
+.video-placeholder-content { max-width: 480px; }
+.video-placeholder h2 { font-size: clamp(1.5rem, 3vw, 2.25rem); }
+.video-placeholder p { margin-bottom: 0; }
+.video-placeholder code { padding: 2px 5px; border-radius: 5px; background: var(--cream); }
+.play-icon { width: 64px; height: 64px; margin: 0 auto 16px; display: grid; place-items: center; padding-left: 4px; border: var(--line); border-radius: 50%; background: var(--yellow); font-size: 1.5rem; }
+.how-section { border-block: var(--line); background: var(--yellow); text-align: center; }
+.section-inner { padding-block: 56px 64px; }
+.section-intro { margin-bottom: 28px; }
+.step-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; text-align: left; }
+.card { border: var(--line); border-radius: 20px; background: var(--white); box-shadow: var(--shadow); }
+.step-card { min-height: 220px; padding: 20px; }
+.step-number { width: 38px; height: 38px; margin-bottom: 10px; display: grid; place-items: center; border: 2px solid var(--navy); border-radius: 50%; background: var(--yellow); font-weight: 900; }
+.step-emoji { display: block; margin-bottom: 8px; font-size: 1.7rem; }
+.step-card p { margin-bottom: 0; }
+.site-footer { padding-block: 28px; color: var(--white); background: var(--navy); }
+.footer-inner { display: grid; grid-template-columns: auto 1fr; align-items: center; gap: 8px 22px; }
+.footer-brand { color: var(--white); }
+.footer-brand .brand-logo { width: 42px; height: 42px; }
+.footer-inner > p { margin: 0; }
+.footer-note { grid-column: 1 / -1; font-size: .9rem; opacity: .9; }
+
+@media (max-width: 760px) {
+  .nav-wrap { padding-block: 10px; align-items: flex-start; flex-direction: column; gap: 6px; }
+  .nav-links { width: 100%; gap: 8px 18px; flex-wrap: wrap; }
+  .nav-links a { padding-block: 5px; font-size: .95rem; }
+  .hero { min-height: 0; padding-block: 44px 32px; grid-template-columns: 1fr; gap: 10px; }
+  .hero-copy { text-align: center; }
+  .hero-description { margin-inline: auto; }
+  .button-row { justify-content: center; }
+  .washer-area { min-height: 330px; }
+  .video-section { padding-bottom: 48px; }
+  .video-placeholder { min-height: 250px; border-width: 6px; }
+  .step-grid { grid-template-columns: 1fr; }
+  .step-card { min-height: 0; }
+}
+@media (max-width: 420px) {
+  .page-shell, .nav-wrap { width: min(100% - 28px, 1120px); }
+  .brand { font-size: 1rem; }
+  .nav-links { gap: 6px 12px; }
+  .nav-links a { font-size: .88rem; }
+  .washer-tap { right: -18px; }
+  .footer-inner { grid-template-columns: 1fr; }
+  .footer-note { grid-column: auto; }
+}
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { scroll-behavior: auto !important; animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
+}
