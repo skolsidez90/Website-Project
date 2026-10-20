@@ -44,9 +44,9 @@
   <main id="main">
     <section class="hero page-shell" aria-labelledby="hero-title">
       <div class="hero-copy">
-        <p class="eyebrow">Laundry pickup and delivery · Cebu City</p>
-        <h1 id="hero-title">Dirty clothes?<br>We’ll scrub-a-dub<br>them clean!</h1>
-        <p class="hero-description">Laundry day made easy. We pick up your laundry, give it a fresh clean, and bring it back to you.</p>
+        <p class="eyebrow">Pickup and delivery in Cebu City</p>
+        <h1 id="hero-title">Dirty laundry?<br>We’ll take it from here.</h1>
+        <p class="hero-description">Book a pickup. We wash, fold, and bring your clothes back fresh.</p>
         <div class="button-row">
           <a class="button button-coral" href="order.html">Book a pickup</a>
           <a class="button button-light" href="services.html">See our services</a>
@@ -59,22 +59,23 @@
         <button class="washer-button" id="washer-button" type="button" aria-describedby="washer-help">
           <span class="washer-top"><span class="washer-dot dot-coral"></span><span class="washer-dot dot-yellow"></span><span class="washer-status" id="washer-status" aria-live="polite">Ready</span></span>
           <svg class="washer-art" viewBox="0 0 220 230" aria-hidden="true">
-            <rect x="13" y="8" width="194" height="211" rx="27" fill="#2EC4B6" stroke="#1B2A41" stroke-width="5"/>
-            <path d="M16 39h188" stroke="#1B2A41" stroke-width="4"/>
-            <circle cx="39" cy="24" r="8" fill="#FF6B6B" stroke="#1B2A41" stroke-width="3"/>
-            <circle cx="64" cy="24" r="8" fill="#FFD23F" stroke="#1B2A41" stroke-width="3"/>
-            <circle cx="110" cy="128" r="63" fill="#FFD23F" stroke="#1B2A41" stroke-width="5"/>
-            <circle class="washer-drum" cx="110" cy="128" r="48" fill="#FFF6E5" stroke="#1B2A41" stroke-width="4"/>
-            <path d="M64 139q22-26 46-4 24-22 46 4v16a48 48 0 0 1-92 0z" fill="#2EC4B6" stroke="#1B2A41" stroke-width="3"/>
-            <circle cx="94" cy="121" r="4" fill="#1B2A41"/><circle cx="126" cy="121" r="4" fill="#1B2A41"/>
-            <path d="M99 134q11 12 22 0" fill="none" stroke="#1B2A41" stroke-width="4" stroke-linecap="round"/>
-            <circle class="washer-bubble bubble-a" cx="83" cy="99" r="7" fill="#FFF6E5" stroke="#1B2A41" stroke-width="2"/>
-            <circle class="washer-bubble bubble-b" cx="135" cy="93" r="5" fill="#FFF6E5" stroke="#1B2A41" stroke-width="2"/>
-            <path d="M84 213h52" stroke="#1B2A41" stroke-width="5" stroke-linecap="round"/>
+            <rect x="13" y="8" width="194" height="211" rx="27" fill="var(--teal)" stroke="var(--navy)" stroke-width="5"/>
+            <circle cx="110" cy="128" r="63" fill="var(--yellow)" stroke="var(--navy)" stroke-width="5"/>
+            <g class="washer-door">
+              <circle class="washer-drum" cx="110" cy="128" r="48" fill="var(--cream)" stroke="var(--navy)" stroke-width="4"/>
+              <path d="M64 139q22-26 46-4 24-22 46 4v16a48 48 0 0 1-92 0z" fill="var(--teal)" stroke="var(--navy)" stroke-width="3"/>
+              <circle cx="94" cy="121" r="4" fill="var(--navy)"/><circle cx="126" cy="121" r="4" fill="var(--navy)"/>
+              <path d="M99 134q11 12 22 0" fill="none" stroke="var(--navy)" stroke-width="4" stroke-linecap="round"/>
+              <circle class="washer-bubble bubble-a" cx="83" cy="99" r="7" fill="var(--cream)" stroke="var(--navy)" stroke-width="2"/>
+              <circle class="washer-bubble bubble-b" cx="135" cy="93" r="5" fill="var(--cream)" stroke="var(--navy)" stroke-width="2"/>
+              <path class="washer-clothes" d="M91 105l10-5 7 5 8-4 12 7-5 7-7-3-1 8H97l-1-8-7 2z" fill="var(--coral)" stroke="var(--navy)" stroke-width="2"/>
+            </g>
+            <path class="washer-shirt-out" d="M157 134l9 5 7-4 9 5-4 5-5-2v12h-14v-12l-5 2-3-5z" fill="var(--coral)" stroke="var(--navy)" stroke-width="2"/>
+            <path d="M84 213h52" stroke="var(--navy)" stroke-width="5" stroke-linecap="round"/>
           </svg>
           <span class="washer-tap">Tap to wash!</span>
         </button>
-        <p class="washer-help" id="washer-help">Tap the washing machine to start a cycle. Tap again to reset.</p>
+        <p class="washer-help" id="washer-help">Click the washer to start. Click again to reset.</p>
         <span class="bubble bubble-three" aria-hidden="true"></span>
       </div>
     </section>
@@ -91,15 +92,14 @@
     </section>
 
     <section class="how-section" aria-labelledby="how-title">
-      <div class="page-shell section-inner">
-        <p class="eyebrow">Laundry made simple</p>
+      <div class="page-shell how-inner">
+        <p class="eyebrow">From your door back to your closet</p>
         <h2 id="how-title">How it works</h2>
-        <p class="section-intro">Three easy steps from laundry pile to fresh stack.</p>
-        <div class="step-grid">
-          <article class="card step-card"><span class="step-number">1</span><span class="step-emoji" aria-hidden="true">🛍️</span><h3>Book a pickup</h3><p>Choose a pickup time and tell us what needs a wash.</p></article>
-          <article class="card step-card"><span class="step-number">2</span><span class="step-emoji" aria-hidden="true">🫧</span><h3>We wash and fold</h3><p>Our team gives your clothes a careful, fresh clean.</p></article>
-          <article class="card step-card"><span class="step-number">3</span><span class="step-emoji" aria-hidden="true">👕</span><h3>Fresh clothes back</h3><p>We deliver your clean laundry, ready for you to enjoy.</p></article>
-        </div>
+        <ol class="steps-list">
+          <li class="step-item"><span class="step-number">1</span><h3>Book a pickup</h3><p>Choose a time and tell us what needs washing.</p></li>
+          <li class="step-item"><span class="step-number">2</span><h3>We wash and fold</h3><p>We sort, clean, dry, and fold your laundry.</p></li>
+          <li class="step-item"><span class="step-number">3</span><h3>Get it back</h3><p>We bring your clean clothes back to your door.</p></li>
+        </ol>
         <a class="button button-navy" href="order.html">Ready to book?</a>
       </div>
     </section>
