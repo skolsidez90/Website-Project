@@ -1,54 +1,47 @@
-"""Interactive washing-machine illustration for the home page."""
-
-import asyncio
-from js import document
+"""Washing machine animation. Event: click on the machine.
+Python only adds and removes CSS classes. The CSS does the animating."""
 from pyscript import when
+from utils import q, after
 
-machine = document.querySelector("#washer-button")
-status = document.querySelector("#washer-status")
-cycle_number = 0
-is_running = False
+machine = q("#machine")
+status = q("#status")
+state = {"busy": False, "done": False}
 
 
-# Click event: start the wash cycle, or stop it and reset the machine.
-@when("click", "#washer-button")
-async def run_wash_cycle(event):
-    global cycle_number, is_running
+def stage(label, add=(), remove=()):
+    status.textContent = label
+    for name in add:
+        machine.classList.add(name)
+    for name in remove:
+        machine.classList.remove(name)
 
-    cycle_number += 1
-    this_cycle = cycle_number
 
-    # A second click changes the cycle number, so the earlier animation stops.
-    if is_running:
-        is_running = False
-        machine.classList.remove("is-running")
-        machine.classList.remove("is-done")
-        status.textContent = "Ready"
-        return
+def finish():
+    stage("Done. Fresh and clean!", add=["is-done"], remove=["is-running"])
+    state["busy"] = False
+    state["done"] = True
+    machine.setAttribute("aria-busy", "false")
+    machine.setAttribute("aria-label", "Reset the washing machine")
 
-    is_running = True
-    machine.classList.add("is-running")
 
-    steps = [
-        ("Washing", 2.0),
-        ("Rinsing", 1.5),
-        ("Spinning", 1.5),
-    ]
+def run_cycle():
+    state["busy"] = True
+    machine.setAttribute("aria-busy", "true")
+    stage("Loading clothes", add=["is-open"])
+    after(900, lambda: stage("Washing", add=["is-running"], remove=["is-open"]))
+    after(3300, lambda: stage("Rinsing"))
+    after(5100, lambda: stage("Spinning"))
+    after(6900, finish)
 
-    for label, seconds in steps:
-        if this_cycle != cycle_number:
-            return
-        status.textContent = label
-        await asyncio.sleep(seconds)
 
-    if this_cycle == cycle_number:
-        is_running = False
-        machine.classList.remove("is-running")
-        machine.classList.add("is-done")
-        status.textContent = "Done!"
-        machine.setAttribute("aria-label", "Fresh and clean!")
-        await asyncio.sleep(0.45)
-        if this_cycle == cycle_number:
-            machine.classList.remove("is-done")
-            machine.setAttribute("aria-label", "Start the washing machine cycle")
-            status.textContent = "Fresh and clean!"
+def reset():
+    state["done"] = False
+    stage("Tap to wash", remove=["is-done"])
+    machine.setAttribute("aria-label", "Start a wash cycle")
+
+
+@when("click", "#machine")
+def on_machine_click(event):
+    if state["busy"]:
+        return  # ignore clicks while a cycle is running
+    reset() if state["done"] else run_cycle()

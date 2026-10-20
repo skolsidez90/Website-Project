@@ -1,5 +1,9 @@
-# Keep this simple configuration file shared by the page feature scripts.
-# The current features use only Python's standard library, so no packages
-# need to be installed in the browser.
-packages = []
-
+# Copies each Python module into PyScript's virtual file system so pages can import them.
+[files]
+"./py/config.py" = "./config.py"
+"./py/utils.py" = "./utils.py"
+"./py/nav.py" = "./nav.py"
+"./py/washing_machine.py" = "./washing_machine.py"
+"./py/calculator.py" = "./calculator.py"
+"./py/booking.py" = "./booking.py"
+"./py/faq.py" = "./faq.py"

@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>About | Scrub-a-dub Laundry</title>
+<meta name="description" content="About Scrub-a-dub Laundry, hours, and common questions.">
+<link rel="icon" href="assets/logo-small.png">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600&family=Nunito:wght@400;700&display=swap">
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="https://pyscript.net/releases/2025.8.1/core.css">
+<script type="module" src="https://pyscript.net/releases/2025.8.1/core.js"></script>
+</head>
+<body>
+<header class="site-header"><div class="wrap bar">
+<a class="brand" href="index.html"><img src="assets/logo-small.png" alt="Scrub-a-dub Laundry, home" width="180" height="48"></a>
+<button id="nav-toggle" class="nav-toggle" aria-expanded="false" aria-controls="nav">Menu</button>
+<nav id="nav" class="nav" aria-label="Main"><a href="index.html">Home</a><a href="services.html">Services</a><a href="order.html">Book a pickup</a><a href="about.html">About</a></nav>
+</div></header>
+<p id="loading" class="loading" role="status">Loading the machine...</p>
+<main>
+
+<section class="section"><div class="wrap grid12" style="align-items:start">
+<div class="c-5"><h1>About the shop</h1><p>Scrub-a-dub Laundry is a neighborhood laundry service in Cebu City. [SHORT STORY OF THE SHOP]</p><p>Open [OPENING HOURS]. Call [PHONE NUMBER] or visit us at [STREET ADDRESS].</p></div>
+<div class="c-7"><h2>Questions</h2><ul class="faq">
+<li class="faq-item open"><button class="faq-q" aria-expanded="true">How long does a wash take?</button><div class="faq-a"><div><p>[TURNAROUND TIME]</p></div></div></li>
+<li class="faq-item"><button class="faq-q" aria-expanded="false">Where do you pick up?</button><div class="faq-a"><div><p>[SERVICE AREA] in Cebu City.</p></div></div></li>
+<li class="faq-item"><button class="faq-q" aria-expanded="false">How is my total worked out?</button><div class="faq-a"><div><p>Quantity times the service price, plus the rush fee and delivery fee if you pick them. Try it on the Services page.</p></div></div></li>
+<li class="faq-item"><button class="faq-q" aria-expanded="false">Can you handle delicate items?</button><div class="faq-a"><div><p>[DELICATE ITEMS POLICY]</p></div></div></li>
+<li class="faq-item"><button class="faq-q" aria-expanded="false">How do I pay?</button><div class="faq-a"><div><p>[PAYMENT METHODS]</p></div></div></li>
+</ul></div></div></section>
+</main>
+<footer class="site-footer"><div class="wrap foot">
+<div><img src="assets/logo-small.png" alt="Scrub-a-dub Laundry" width="180" height="48"><p class="small mt">Scrub-a-dub Laundry, [YEAR]<br>[GROUP NAME]</p></div>
+<div><h3>Find us</h3><p>[STREET ADDRESS]<br>Cebu City</p></div>
+<div><h3>Get in touch</h3><p>[PHONE NUMBER]<br>[EMAIL]</p></div>
+<div><h3>Open</h3><p>[OPENING HOURS]</p></div>
+</div></footer>
+<script type="py" config="./pyscript.toml">
+import nav, faq
+from pyscript import document
+document.querySelector("#loading").remove()
+</script>
+</body>
+</html>

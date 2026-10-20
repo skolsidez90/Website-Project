@@ -1,80 +1,77 @@
-"""Live price estimate for the Services page."""
+"""Price calculator. Events: input (quantity), change (service, toggles), click (service rows)."""
+from pyscript import when, window
+from pyscript.ffi import create_proxy
+from config import SERVICES, RUSH_RATE, DELIVERY_FEE, MAX_QTY
+from utils import q, qa, peso
 
-from js import document
-from pyscript import when
-
-# Sample rates for the classroom demo. Replace these after the group agrees
-# on real prices. All service rates in this simple calculator are per kilo.
-PRICES = {
-    "Wash and fold": 50,
-    "Dry cleaning": 120,
-    "Ironing": 45,
-    "Bedding": 80,
-    "Rush fee": 50,
-    "Pickup and delivery fee": 40,
-}
-
-service_input = document.querySelector("#service")
-weight_input = document.querySelector("#weight")
-rush_input = document.querySelector("#rush")
-delivery_input = document.querySelector("#delivery")
-message = document.querySelector("#estimate-message")
+state = {"shown_total": 0.0}
 
 
-def format_pesos(amount):
-    """Show a number as Philippine pesos with two decimal places."""
-    return f"₱{amount:,.2f}"
+def compute_total(service, qty, rush, delivery):
+    """Pure calculation. No DOM access, so it is easy to test and explain."""
+    base = SERVICES[service]["price"] * qty
+    rush_fee = base * RUSH_RATE if rush else 0.0
+    delivery_fee = DELIVERY_FEE if delivery else 0.0
+    return {"base": base, "rush": rush_fee, "delivery": delivery_fee,
+            "total": base + rush_fee + delivery_fee}
 
 
-def update_receipt():
-    """Calculate the total and place each amount in the receipt."""
+def parse_qty(text):
+    """Return a valid quantity or None."""
     try:
-        weight = float(weight_input.value)
-    except (TypeError, ValueError):
-        message.textContent = "Enter a laundry weight greater than zero."
-        return
-
-    if weight <= 0:
-        message.textContent = "Enter a laundry weight greater than zero."
-        return
-
-    service_name = service_input.value
-    subtotal = PRICES[service_name] * weight
-    rush_fee = PRICES["Rush fee"] if rush_input.checked else 0
-    delivery_fee = PRICES["Pickup and delivery fee"] if delivery_input.checked else 0
-    total = subtotal + rush_fee + delivery_fee
-
-    document.querySelector("#receipt-service").textContent = service_name
-    document.querySelector("#receipt-subtotal").textContent = format_pesos(subtotal)
-    document.querySelector("#receipt-rush").textContent = format_pesos(rush_fee)
-    document.querySelector("#receipt-delivery").textContent = format_pesos(delivery_fee)
-    document.querySelector("#receipt-total").textContent = format_pesos(total)
-    message.textContent = ""
+        value = float(text)
+    except ValueError:
+        return None
+    return value if 0 < value <= MAX_QTY else None
 
 
-# Change event: recalculate when the visitor chooses a different service.
-@when("change", "#service")
-def on_service_change(event):
-    update_receipt()
+def count_to(target, steps=12):
+    """Make the total count up (or down) instead of jumping."""
+    start = state["shown_total"]
+
+    def tick(i):
+        q("#r-total").textContent = peso(start + (target - start) * i / steps)
+        if i < steps:
+            window.setTimeout(create_proxy(lambda: tick(i + 1)), 20)
+    tick(1)
+    state["shown_total"] = target
 
 
-# Input event: recalculate while the visitor edits the laundry weight.
-@when("input", "#weight")
-def on_weight_input(event):
-    update_receipt()
+def update():
+    service = q("#service").value
+    q("#qty-label").textContent = f"Quantity ({SERVICES[service]['unit']}s)"
+    qty = parse_qty(q("#kilos").value)
+    if qty is None:
+        q("#calc-msg").textContent = f"Enter a quantity above 0, up to {MAX_QTY}."
+        qty = 0
+    else:
+        q("#calc-msg").textContent = ""
+    r = compute_total(service, qty, q("#rush").checked, q("#delivery").checked)
+    q("#r-sub").textContent = peso(r["base"])
+    q("#r-rush").textContent = peso(r["rush"])
+    q("#r-del").textContent = peso(r["delivery"])
+    count_to(r["total"])
 
 
-# Change event: include or remove the rush-service fee.
-@when("change", "#rush")
-def on_rush_change(event):
-    update_receipt()
+@when("input", "#kilos")
+def on_quantity(event):
+    update()
 
 
-# Change event: include or remove the pickup-and-delivery fee.
-@when("change", "#delivery")
-def on_delivery_change(event):
-    update_receipt()
+@when("change", "#service, #rush, #delivery")
+def on_option(event):
+    update()
 
 
-# Show an estimate as soon as the page loads.
-update_receipt()
+@when("click", ".svc")
+def on_service_row(event):
+    q("#service").value = event.currentTarget.dataset.service
+    update()
+    q("#calculator").scrollIntoView()
+
+
+# Fill the price shown on each service row from config.py.
+for row in qa(".svc"):
+    s = SERVICES[row.dataset.service]
+    row.querySelector(".price").textContent = f"{peso(s['price'])} per {s['unit']}"
+update()
