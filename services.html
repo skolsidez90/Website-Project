@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#fff6e5">
+  <meta name="description" content="Explore laundry services and estimate your Scrub-a-Dub order in Cebu City.">
+  <title>Services and Price Calculator | Scrub-a-Dub Laundry</title>
+  <link rel="icon" href="assets/logo.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://pyscript.net/releases/2026.7.3/core.css">
+  <script type="module" src="https://pyscript.net/releases/2026.7.3/core.js"></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to main content</a>
+  <header class="site-header">
+    <nav class="nav-wrap" aria-label="Main navigation">
+      <a class="brand" href="index.html" aria-label="Scrub-a-Dub Laundry home">
+        <svg class="brand-logo" viewBox="0 0 64 64" role="img" aria-label="Smiling washing machine in a bubble">
+          <circle cx="32" cy="32" r="29" fill="#2EC4B6" stroke="#1B2A41" stroke-width="4"/><rect x="17" y="13" width="30" height="38" rx="5" fill="#FFF6E5" stroke="#1B2A41" stroke-width="3"/><circle cx="23" cy="20" r="2" fill="#FF6B6B"/><circle cx="29" cy="20" r="2" fill="#FFD23F"/><circle cx="32" cy="35" r="11" fill="#FFD23F" stroke="#1B2A41" stroke-width="2.5"/><circle cx="32" cy="35" r="7" fill="#2EC4B6" stroke="#1B2A41" stroke-width="2"/><circle cx="29.5" cy="34" r="1" fill="#1B2A41"/><circle cx="34.5" cy="34" r="1" fill="#1B2A41"/><path d="M29 37q3 3 6 0" fill="none" stroke="#1B2A41" stroke-width="1.5" stroke-linecap="round"/>
+        </svg>
+        <span>Scrub-a-Dub<br>Laundry</span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a class="current" aria-current="page" href="services.html">Services</a></li>
+        <li><a href="order.html">Book a pickup</a></li>
+        <li><a href="about.html">About &amp; contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main id="main">
+    <section class="page-heading page-shell" aria-labelledby="services-title">
+      <p class="eyebrow">Fresh clothes, your way</p>
+      <h1 id="services-title">Services and prices</h1>
+      <p>Pick the care your clothes need. We’ll take it from here!</p>
+    </section>
+
+    <section class="services-section page-shell" aria-label="Laundry services">
+      <div class="service-grid">
+        <article class="card service-card">
+          <span class="service-icon" aria-hidden="true">🫧</span>
+          <h2>Wash and fold</h2>
+          <p>Everyday clothes washed, dried, and neatly folded.</p>
+          <p class="service-price">₱[PRICE] / kilo</p>
+        </article>
+        <article class="card service-card">
+          <span class="service-icon" aria-hidden="true">👔</span>
+          <h2>Dry cleaning</h2>
+          <p>Extra care for delicate clothes and formal wear.</p>
+          <p class="service-price">₱[PRICE] / kilo</p>
+        </article>
+        <article class="card service-card">
+          <span class="service-icon" aria-hidden="true">✨</span>
+          <h2>Ironing</h2>
+          <p>Crisp, pressed clothes that are ready to wear.</p>
+          <p class="service-price">₱[PRICE] / kilo</p>
+        </article>
+        <article class="card service-card">
+          <span class="service-icon" aria-hidden="true">🛏️</span>
+          <h2>Bedding</h2>
+          <p>Freshen up blankets, sheets, and comforters.</p>
+          <p class="service-price">₱[PRICE] / kilo</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="calculator-section" aria-labelledby="calculator-title">
+      <div class="page-shell calculator-inner">
+        <div class="calculator-heading">
+          <p class="eyebrow">A quick estimate</p>
+          <h2 id="calculator-title">Price calculator</h2>
+          <p>Change an option to see your estimate update.</p>
+        </div>
+
+        <div class="calculator-layout">
+          <form class="calculator-form" id="calculator-form" action="#receipt" method="get">
+            <div class="form-field">
+              <label for="service">Choose a service</label>
+              <select id="service" name="service">
+                <option value="Wash and fold">Wash and fold</option>
+                <option value="Dry cleaning">Dry cleaning</option>
+                <option value="Ironing">Ironing</option>
+                <option value="Bedding">Bedding</option>
+              </select>
+            </div>
+            <div class="form-field">
+              <label for="weight">Laundry weight in kilos</label>
+              <input id="weight" name="weight" type="number" min="0.5" step="0.5" value="3" inputmode="decimal" required>
+            </div>
+            <label class="check-row" for="rush">
+              <input id="rush" name="rush" type="checkbox">
+              Rush service (sample fee: ₱50)
+            </label>
+            <label class="check-row" for="delivery">
+              <input id="delivery" name="delivery" type="checkbox" checked>
+              Pickup and delivery (sample fee: ₱40)
+            </label>
+            <p class="estimate-message" id="estimate-message" role="status" aria-live="polite"></p>
+          </form>
+
+          <section class="receipt-card" id="receipt" aria-label="Price estimate receipt" aria-live="polite">
+            <h3>Your estimate</h3>
+            <div class="receipt-line"><span>Service</span><strong id="receipt-service">Wash and fold</strong></div>
+            <div class="receipt-line"><span>Subtotal</span><strong id="receipt-subtotal">₱150.00</strong></div>
+            <div class="receipt-line"><span>Rush fee</span><strong id="receipt-rush">₱0.00</strong></div>
+            <div class="receipt-line"><span>Pickup and delivery</span><strong id="receipt-delivery">₱40.00</strong></div>
+            <div class="receipt-line receipt-total"><span>Total</span><strong id="receipt-total">₱190.00</strong></div>
+            <p class="calculator-note">Sample rates are for demonstration. Replace the values in <code>py/calculator.py</code> with your group’s agreed prices.</p>
+          </section>
+        </div>
+        <div class="services-cta"><a class="button button-coral" href="order.html">Book a pickup</a></div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="page-shell footer-inner">
+      <a class="brand footer-brand" href="index.html">
+        <svg class="brand-logo" viewBox="0 0 64 64" role="img" aria-label="Scrub-a-Dub Laundry logo">
+          <circle cx="32" cy="32" r="29" fill="#2EC4B6" stroke="#FFF6E5" stroke-width="4"/><rect x="17" y="13" width="30" height="38" rx="5" fill="#FFF6E5" stroke="#1B2A41" stroke-width="3"/><circle cx="23" cy="20" r="2" fill="#FF6B6B"/><circle cx="29" cy="20" r="2" fill="#FFD23F"/><circle cx="32" cy="35" r="11" fill="#FFD23F" stroke="#1B2A41" stroke-width="2.5"/><circle cx="32" cy="35" r="7" fill="#2EC4B6" stroke="#1B2A41" stroke-width="2"/><path d="M29 37q3 3 6 0" fill="none" stroke="#1B2A41" stroke-width="1.5" stroke-linecap="round"/>
+        </svg><span>Scrub-a-Dub Laundry</span>
+      </a>
+      <p>Fresh clothes, fun service.</p>
+      <p class="footer-note">Serving Cebu City, Philippines · Contact details and hours will be added to the About page.</p>
+    </div>
+  </footer>
+  <script type="py" src="py/calculator.py" config="pyscript.toml"></script>
+</body>
+</html>

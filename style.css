@@ -88,6 +88,41 @@ h3 { margin-bottom: 8px; font-size: 1.3rem; }
 .footer-inner > p { margin: 0; }
 .footer-note { grid-column: 1 / -1; font-size: .9rem; opacity: .9; }
 
+/* Services page and receipt calculator */
+.page-heading { padding-block: 54px 30px; text-align: center; }
+.page-heading h1 { margin-bottom: 10px; font-size: clamp(2.6rem, 6vw, 4rem); }
+.page-heading p:last-child { margin-bottom: 0; }
+.services-section { padding-bottom: 64px; }
+.service-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; }
+.service-card { min-height: 190px; padding: 20px; }
+.service-card:nth-child(1) { background: #9CE4DC; }
+.service-card:nth-child(2) { background: #FFE889; }
+.service-card:nth-child(3) { background: #FFB3B3; }
+.service-card:nth-child(4) { background: var(--white); }
+.service-icon { display: block; margin-bottom: 9px; font-size: 2rem; }
+.service-card p { margin-bottom: 12px; }
+.service-price { margin: 0; font-family: var(--heading-font); font-size: 1.15rem; font-weight: 700; }
+.calculator-section { border-block: var(--line); background: var(--teal); }
+.calculator-inner { padding-block: 52px 64px; }
+.calculator-heading { margin-bottom: 28px; text-align: center; }
+.calculator-heading p { margin-bottom: 0; }
+.calculator-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 22px; align-items: stretch; }
+.calculator-form, .receipt-card { padding: 22px; border: var(--line); border-radius: 20px; box-shadow: var(--shadow); }
+.calculator-form { background: var(--white); }
+.form-field { margin-bottom: 15px; }
+.form-field label { display: block; margin-bottom: 5px; font-weight: 800; }
+.form-field input:not([type="checkbox"]), .form-field select { width: 100%; min-height: 44px; padding: 8px 11px; border: 2px solid var(--navy); border-radius: 10px; color: var(--navy); background: var(--white); }
+.check-row { display: flex; align-items: center; gap: 9px; margin-block: 12px; font-weight: 800; }
+.check-row input { width: 18px; height: 18px; accent-color: var(--navy); }
+.receipt-card { background: var(--cream); }
+.receipt-card h3 { margin-bottom: 18px; }
+.receipt-line { display: flex; justify-content: space-between; gap: 14px; padding-block: 8px; border-bottom: 1px dashed var(--navy); }
+.receipt-line strong { text-align: right; }
+.receipt-total { margin-top: 7px; border-bottom: 0; font-family: var(--heading-font); font-size: 1.5rem; font-weight: 700; }
+.calculator-note { margin: 15px 0 0; font-size: .9rem; }
+.estimate-message { min-height: 1.5em; margin: 8px 0 0; color: #8B1E24; font-weight: 800; }
+.services-cta { margin-top: 30px; text-align: center; }
+
 @media (max-width: 760px) {
   .nav-wrap { padding-block: 10px; align-items: flex-start; flex-direction: column; gap: 6px; }
   .nav-links { width: 100%; gap: 8px 18px; flex-wrap: wrap; }
@@ -101,6 +136,8 @@ h3 { margin-bottom: 8px; font-size: 1.3rem; }
   .video-placeholder { min-height: 250px; border-width: 6px; }
   .step-grid { grid-template-columns: 1fr; }
   .step-card { min-height: 0; }
+  .service-grid { grid-template-columns: repeat(2, 1fr); }
+  .calculator-layout { grid-template-columns: 1fr; }
 }
 @media (max-width: 420px) {
   .page-shell, .nav-wrap { width: min(100% - 28px, 1120px); }
@@ -110,6 +147,8 @@ h3 { margin-bottom: 8px; font-size: 1.3rem; }
   .washer-tap { right: -18px; }
   .footer-inner { grid-template-columns: 1fr; }
   .footer-note { grid-column: auto; }
+  .service-grid { grid-template-columns: 1fr; }
+  .service-card { min-height: 0; }
 }
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { scroll-behavior: auto !important; animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
