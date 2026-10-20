@@ -3,6 +3,7 @@
 "./py/config.py" = "./config.py"
 "./py/utils.py" = "./utils.py"
 "./py/nav.py" = "./nav.py"
+"./py/background_bubbles.py" = "./background_bubbles.py"
 "./py/washing_machine.py" = "./washing_machine.py"
 "./py/calculator.py" = "./calculator.py"
 "./py/booking.py" = "./booking.py"
