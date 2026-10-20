@@ -13,24 +13,50 @@
 <script type="module" src="https://pyscript.net/releases/2025.8.1/core.js"></script>
 </head>
 <body>
+<div class="bubble-background" aria-hidden="true">
+<i class="bubble-background__bubble"></i><i class="bubble-background__bubble"></i><i class="bubble-background__bubble"></i><i class="bubble-background__bubble"></i><i class="bubble-background__bubble"></i><i class="bubble-background__bubble"></i><i class="bubble-background__bubble"></i><i class="bubble-background__bubble"></i><i class="bubble-background__bubble"></i><i class="bubble-background__bubble"></i><i class="bubble-background__bubble"></i><i class="bubble-background__bubble"></i><i class="bubble-background__bubble"></i><i class="bubble-background__bubble"></i>
+</div>
 <header class="site-header"><div class="wrap bar">
 <a class="brand" href="index.html"><img src="assets/logo-small.png" alt="Scrub-a-dub Laundry, home" width="180" height="48"></a>
 <button id="nav-toggle" class="nav-toggle" aria-expanded="false" aria-controls="nav">Menu</button>
 <nav id="nav" class="nav" aria-label="Main"><a href="index.html">Home</a><a href="services.html">Services</a><a href="order.html">Book a pickup</a><a href="about.html">About</a></nav>
 </div></header>
-<p id="loading" class="loading" role="status">Loading the machine...</p>
+<p id="loading" class="loading" role="status">Loading page features...</p>
 <main>
 
 <section class="hero"><div class="wrap grid12">
 <div class="c-6"><h1>Dirty clothes? We'll scrub-a-dub them clean.</h1>
 <p>Drop off your laundry or book a pickup in Cebu City. We wash, dry, fold, and bring it back.</p>
 <div class="actions"><a class="btn" href="order.html">Book a pickup</a><a class="btn btn--ghost" href="services.html">See prices</a></div></div>
-<div class="c-6 hero-art"><span class="bub b1"></span><span class="bub b2"></span><span class="bub b3"></span>
-<button id="machine" class="machine" aria-busy="false" aria-label="Start a wash cycle">
-<span class="m-panel"><i class="knob"></i><i class="knob y"></i><span id="status" class="m-status" role="status">Tap to wash</span></span>
-<span class="door"><span class="drum"><i class="cloth c1"></i><i class="cloth c2"></i><i class="cloth c3"></i></span></span>
-<span class="fresh"></span></button>
-<p class="hint">Tap the machine to run a wash.</p></div>
+<div class="c-6 washer-scene">
+<span class="washer-spark washer-spark--one" aria-hidden="true">✦</span><span class="washer-spark washer-spark--two" aria-hidden="true">✦</span>
+<button id="machine" class="commercial-washer" type="button" aria-busy="false" aria-label="Start the washing machine">
+<svg class="washer-illustration" viewBox="0 0 320 380" role="img" aria-labelledby="washer-title washer-description">
+<title id="washer-title">Scrub-a-Dub cartoon washing machine</title><desc id="washer-description">A smiling teal washing machine with colorful laundry inside its round glass door.</desc>
+<defs><clipPath id="washer-window-clip"><circle cx="160" cy="218" r="83"/></clipPath></defs>
+<path d="M62 345h36v19H62zm160 0h36v19h-36z" fill="#1B2A41"/>
+<rect x="42" y="20" width="236" height="330" rx="30" fill="#2EC4B6" stroke="#1B2A41" stroke-width="8"/>
+<rect x="58" y="39" width="204" height="67" rx="17" fill="#FFF6E5" stroke="#1B2A41" stroke-width="6"/>
+<circle cx="88" cy="72" r="14" fill="#FF6B6B" stroke="#1B2A41" stroke-width="5"/>
+<circle cx="132" cy="72" r="14" fill="#FFD23F" stroke="#1B2A41" stroke-width="5"/>
+<rect x="169" y="59" width="77" height="27" rx="13" fill="#fff" stroke="#1B2A41" stroke-width="4"/>
+<circle cx="160" cy="218" r="103" fill="#FFD23F" stroke="#1B2A41" stroke-width="8"/>
+<circle cx="160" cy="218" r="88" fill="#B9F1E9" stroke="#1B2A41" stroke-width="5"/>
+<g class="washer-spin" clip-path="url(#washer-window-clip)">
+<path d="M77 250q83-38 166 0v70H77z" fill="#2EC4B6" opacity=".78"/>
+<path d="M101 161l15-12 14 9 14-5 15 13-10 12-8-5-4 34h-31l-4-34-8 5-10-12z" fill="#FF6B6B" stroke="#1B2A41" stroke-width="4" stroke-linejoin="round"/>
+<path d="M174 179h31v23h-8v26h-15v-26h-8z" fill="#FFD23F" stroke="#1B2A41" stroke-width="4" stroke-linejoin="round"/>
+<path d="M132 252h54v39h-54z" rx="8" fill="#B9A0E8" stroke="#1B2A41" stroke-width="4"/>
+<path d="M82 225q78-19 156 0" fill="none" stroke="#fff" stroke-width="5" opacity=".85"/>
+</g>
+<g class="washer-smile" fill="#1B2A41"><circle cx="148" cy="220" r="4"/><circle cx="173" cy="220" r="4"/><path d="M147 231q13 17 27 0" fill="none" stroke="#1B2A41" stroke-width="4" stroke-linecap="round"/></g>
+<text x="160" y="327" text-anchor="middle" fill="#1B2A41" font-family="Nunito, sans-serif" font-size="15" font-weight="900">SCRUB-A-DUB</text>
+</svg>
+<span id="status" class="washer-status" role="status">Ready to wash</span>
+<span class="washer-burst" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span>
+</button>
+<p class="washer-hint">Tap to spin up some clean!</p>
+</div>
 </div></section>
 <section class="section"><div class="wrap"><h2>From pile to stack in three steps</h2>
 <ol class="steps">
@@ -42,14 +68,16 @@
 <div class="c-8"><div class="video-frame"><video controls preload="metadata" poster="assets/ad-poster.jpg"><source src="assets/ad.mp4" type="video/mp4">Your browser can't play this video.</video></div></div>
 </div></section>
 </main>
-<footer class="site-footer"><div class="wrap foot">
-<div><img src="assets/logo-small.png" alt="Scrub-a-dub Laundry" width="180" height="48"><p class="small mt">Scrub-a-dub Laundry, [YEAR]<br>[GROUP NAME]</p></div>
-<div><h3>Find us</h3><p>[STREET ADDRESS]<br>Cebu City</p></div>
-<div><h3>Get in touch</h3><p>[PHONE NUMBER]<br>[EMAIL]</p></div>
-<div><h3>Open</h3><p>[OPENING HOURS]</p></div>
+<footer class="site-footer"><div class="wrap footer-wrap">
+<div class="footer-grid">
+<section class="footer-brand"><img src="assets/logo-small.png" alt="Scrub-a-dub Laundry" width="180" height="48"><p>Fresh, folded, and delivered with care in Cebu City.</p><a class="btn footer-cta" href="order.html">Book a pickup <span aria-hidden="true">→</span></a></section>
+<section class="footer-column"><h2><span class="footer-icon" aria-hidden="true">⌖</span>Find us</h2><address>F. Flamas Street<br>Cebu City</address></section>
+<section class="footer-column"><h2><span class="footer-icon" aria-hidden="true">✉</span>Get in touch</h2><p><a href="tel:+639124568271">0912 456 8271</a><a href="mailto:ScrubADub@gmail.com">ScrubADub@gmail.com</a></p></section>
+<section class="footer-column"><h2><span class="footer-icon" aria-hidden="true">◷</span>Opening hours</h2><p>8:00 AM–7:00 PM</p></section>
+</div><div class="footer-bottom"><span>© 2026 Scrub-a-dub Laundry</span><span>Website by <strong>Agura's Team</strong></span></div>
 </div></footer>
 <script type="py" config="./pyscript.toml">
-import nav, washing_machine
+import nav, washing_machine, background_bubbles
 from pyscript import document
 document.querySelector("#loading").remove()
 </script>
