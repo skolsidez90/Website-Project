@@ -13,34 +13,43 @@
 <script type="module" src="https://pyscript.net/releases/2025.8.1/core.js"></script>
 </head>
 <body>
+<div class="bubble-background" aria-hidden="true">
+<i class="bubble-background__bubble"></i><i class="bubble-background__bubble"></i><i class="bubble-background__bubble"></i><i class="bubble-background__bubble"></i><i class="bubble-background__bubble"></i><i class="bubble-background__bubble"></i><i class="bubble-background__bubble"></i><i class="bubble-background__bubble"></i><i class="bubble-background__bubble"></i><i class="bubble-background__bubble"></i><i class="bubble-background__bubble"></i><i class="bubble-background__bubble"></i><i class="bubble-background__bubble"></i><i class="bubble-background__bubble"></i>
+</div>
 <header class="site-header"><div class="wrap bar">
 <a class="brand" href="index.html"><img src="assets/logo-small.png" alt="Scrub-a-dub Laundry, home" width="180" height="48"></a>
 <button id="nav-toggle" class="nav-toggle" aria-expanded="false" aria-controls="nav">Menu</button>
 <nav id="nav" class="nav" aria-label="Main"><a href="index.html">Home</a><a href="services.html">Services</a><a href="order.html">Book a pickup</a><a href="about.html">About</a></nav>
 </div></header>
-<p id="loading" class="loading" role="status">Loading the machine...</p>
+<p id="loading" class="loading" role="status">Loading page features...</p>
 <main>
 
-<section class="section"><div class="wrap grid12"><div class="c-8">
-<h1>Services and prices</h1><p>Pick a service to add it to the calculator below. Prices are samples until the shop sets its own.</p>
+<section class="services-hero"><div class="wrap services-intro">
+<div><span class="eyebrow">Laundry care, made easy</span><h1>Fresh clothes.<br>Happy you.</h1><p>Choose the care your laundry needs. Tap a service to see its estimate.</p><a class="btn" href="#calculator">Calculate your price ↓</a></div>
+<div class="services-promo" aria-hidden="true"><span class="promo-spark">✦</span><span class="promo-bubble promo-bubble--one"></span><span class="promo-bubble promo-bubble--two"></span><span class="promo-label">Goodbye, laundry day!</span><span class="promo-fold promo-fold--one"></span><span class="promo-fold promo-fold--two"></span><span class="promo-fold promo-fold--three"></span></div>
+</div></section>
+<section class="section service-section"><div class="wrap">
+<div class="section-heading"><div><span class="eyebrow">Pick your service</span><h2>How can we help?</h2></div><p>Our prices are sample estimates. Tap a card to add it to the calculator.</p></div>
 <ul class="svc-list">
-<li><button class="svc" data-service="wash"><span class="ico ico--wash" aria-hidden="true"></span><span><span class="name">Wash and fold</span><span>Everyday clothes, washed, dried, folded.</span></span><span class="price"></span></button></li>
-<li><button class="svc" data-service="dry"><span class="ico ico--dry" aria-hidden="true"></span><span><span class="name">Dry cleaning</span><span>Suits, dresses, and delicate pieces.</span></span><span class="price"></span></button></li>
-<li><button class="svc" data-service="iron"><span class="ico ico--iron" aria-hidden="true"></span><span><span class="name">Ironing</span><span>Pressed and ready to hang.</span></span><span class="price"></span></button></li>
-<li><button class="svc" data-service="bed"><span class="ico ico--bed" aria-hidden="true"></span><span><span class="name">Bedding</span><span>Sheets, blankets, and comforters.</span></span><span class="price"></span></button></li>
-</ul></div></div></section>
-<section class="band" id="calculator"><div class="wrap grid12">
-<div class="c-6 fields"><h2>Estimate your total</h2>
+<li><button class="svc" data-service="wash" aria-pressed="true"><span class="ico ico--wash" aria-hidden="true"></span><span class="svc-copy"><span class="name">Wash and fold</span><span class="svc-desc">Everyday clothes, washed, dried, folded.</span><span class="svc-tag">Everyday favorite</span></span><span class="svc-end"><span class="price"></span><span class="svc-arrow" aria-hidden="true">↗</span></span></button></li>
+<li><button class="svc" data-service="dry" aria-pressed="false"><span class="ico ico--dry" aria-hidden="true"></span><span class="svc-copy"><span class="name">Dry cleaning</span><span class="svc-desc">Suits, dresses, and delicate pieces.</span><span class="svc-tag">Delicate care</span></span><span class="svc-end"><span class="price"></span><span class="svc-arrow" aria-hidden="true">↗</span></span></button></li>
+<li><button class="svc" data-service="iron" aria-pressed="false"><span class="ico ico--iron" aria-hidden="true"></span><span class="svc-copy"><span class="name">Ironing</span><span class="svc-desc">Pressed and ready to hang.</span><span class="svc-tag">Crisp and neat</span></span><span class="svc-end"><span class="price"></span><span class="svc-arrow" aria-hidden="true">↗</span></span></button></li>
+<li><button class="svc" data-service="bed" aria-pressed="false"><span class="ico ico--bed" aria-hidden="true"></span><span class="svc-copy"><span class="name">Bedding</span><span class="svc-desc">Sheets, blankets, and comforters.</span><span class="svc-tag">Big and bulky</span></span><span class="svc-end"><span class="price"></span><span class="svc-arrow" aria-hidden="true">↗</span></span></button></li>
+</ul></div></section>
+<section class="calculator-section" id="calculator"><div class="wrap">
+<div class="calculator-heading"><span class="eyebrow">Quick and easy</span><h2>Build your laundry estimate</h2><p>Adjust the options below to see your estimated total update.</p></div>
+<div class="calculator-panel grid12">
+<div class="c-6 fields"><div class="calculator-fields-heading"><span class="step-chip">01</span><h3>Your laundry details</h3></div>
 <div class="field"><label for="service">Service</label><select id="service" class="in"><option value="wash">Wash and fold</option><option value="dry">Dry cleaning</option><option value="iron">Ironing</option><option value="bed">Bedding</option></select></div>
 <div class="field"><label for="kilos" id="qty-label">Quantity</label><input id="kilos" class="in" type="number" min="1" max="100" step="0.5" value="3"><p id="calc-msg" class="msg" role="alert"></p></div>
 <label class="toggle"><input type="checkbox" id="rush"><span class="track"></span>Rush, ready sooner</label>
 <label class="toggle"><input type="checkbox" id="delivery"><span class="track"></span>Pickup and delivery</label></div>
-<div class="c-6"><div class="receipt" aria-live="polite"><h3>Your receipt</h3><dl>
+<div class="c-6"><div class="receipt" aria-live="polite"><div class="receipt-heading"><span class="step-chip step-chip--sun">02</span><span>Estimate summary</span></div><dl>
 <div class="line"><dt>Laundry</dt><dd id="r-sub">₱0.00</dd></div>
 <div class="line"><dt>Rush fee</dt><dd id="r-rush">₱0.00</dd></div>
 <div class="line"><dt>Delivery fee</dt><dd id="r-del">₱0.00</dd></div>
 <div class="line total"><dt>Total</dt><dd id="r-total">₱0.00</dd></div></dl></div></div>
-</div></section>
+</div></div></section>
 </main>
 <footer class="site-footer"><div class="wrap foot">
 <div><img src="assets/logo-small.png" alt="Scrub-a-dub Laundry" width="180" height="48"><p class="small mt">Scrub-a-dub Laundry, [YEAR]<br>[GROUP NAME]</p></div>
@@ -49,7 +58,7 @@
 <div><h3>Open</h3><p>[OPENING HOURS]</p></div>
 </div></footer>
 <script type="py" config="./pyscript.toml">
-import nav, calculator
+import nav, calculator, background_bubbles
 from pyscript import document
 document.querySelector("#loading").remove()
 </script>

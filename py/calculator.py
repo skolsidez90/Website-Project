@@ -39,6 +39,8 @@ def count_to(target, steps=12):
 
 def update():
     service = q("#service").value
+    for row in qa(".svc"):
+        row.setAttribute("aria-pressed", str(row.dataset.service == service).lower())
     q("#qty-label").textContent = f"Quantity ({SERVICES[service]['unit']}s)"
     qty = parse_qty(q("#kilos").value)
     if qty is None:
