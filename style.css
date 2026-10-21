@@ -768,24 +768,187 @@ p {
   pointer-events: none;
 }
 
-/* 10. Video Feature */
-.video-frame {
+/* 10. Motion Graphics Video Showcase */
+.video-showcase {
+  position: relative;
+  overflow: hidden;
+  padding-block: clamp(52px, 7vw, 92px);
+  background: linear-gradient(135deg, #0EA5E9 0%, #0284C7 55%, #0369A1 100%);
+  border-block: var(--border-ink);
+  box-shadow: inset 0 8px 0 rgba(255, 255, 255, 0.22), 0 8px 0 rgba(23, 39, 63, 0.08);
+}
+
+.video-showcase::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(rgba(255, 255, 255, 0.15) 1.5px, transparent 1.5px);
+  background-size: 24px 24px;
+  pointer-events: none;
+}
+
+.video-showcase__copy {
+  position: relative;
+  z-index: 2;
+}
+
+.video-showcase__copy h2 {
+  color: #FFFFFF;
+  font-size: clamp(2rem, 3.2vw, 2.85rem);
+  line-height: 1.15;
+  margin: 0.25em 0 0.4em;
+  text-shadow: 0 3px 0 var(--ink);
+}
+
+.video-showcase__copy p {
+  color: rgba(255, 255, 255, 0.95);
+  font-size: 1.12rem;
+  line-height: 1.6;
+  max-width: 44ch;
+}
+
+.video-perks {
+  display: grid;
+  gap: 10px;
+  margin: var(--s3) 0 var(--s4);
+  padding: 0;
+  list-style: none;
+}
+
+.video-perks li {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  color: #FFFFFF;
+  font-weight: 700;
+  font-size: 0.98rem;
+  background: rgba(23, 39, 63, 0.28);
+  border: 1.5px solid rgba(255, 255, 255, 0.35);
+  border-radius: var(--r-pill);
+  padding: 6px 14px;
+  width: fit-content;
+  box-shadow: 0 2px 0 rgba(23, 39, 63, 0.4);
+}
+
+.video-perks li span {
+  font-size: 1.1rem;
+}
+
+.video-cta {
+  margin-top: var(--s2);
+}
+
+.video-cta .btn {
+  background: var(--sun);
+  color: var(--ink);
+  text-shadow: none;
+}
+
+.video-cta .btn:hover {
+  background: #FFCA3A;
+}
+
+.video-showcase__media {
+  position: relative;
+  z-index: 2;
+  display: grid;
+  place-items: center;
+}
+
+.video-console {
+  width: 100%;
   background: var(--ink);
   border: var(--border-ink);
   border-radius: var(--r-lg);
-  padding: var(--s2);
-  aspect-ratio: 16 / 9;
+  padding: 14px 14px 16px;
   box-shadow: var(--shadow-3d-lg);
+  transition: transform var(--t-hover) var(--ease-bounce);
+}
+
+.video-console:hover {
+  transform: translateY(-4px) scale(1.01);
+}
+
+.video-console__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 2px 8px 12px;
+  color: rgba(255, 255, 255, 0.7);
+  font: 700 0.82rem var(--f-head);
+  letter-spacing: 0.06em;
+}
+
+.console-dots {
+  display: flex;
+  gap: 6px;
+}
+
+.console-dots i {
+  width: 11px;
+  height: 11px;
+  border-radius: 50%;
+  border: 1.5px solid var(--ink);
+  display: inline-block;
+}
+
+.console-dots i:nth-child(1) { background: var(--coral); }
+.console-dots i:nth-child(2) { background: var(--sun); }
+.console-dots i:nth-child(3) { background: var(--teal); }
+
+.console-title {
+  font-size: 0.8rem;
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.console-live {
+  color: var(--sun);
+  font-weight: 800;
+  font-size: 0.82rem;
+  animation: pulse-live 1.6s infinite ease-in-out;
+}
+
+@keyframes pulse-live {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.45; }
+}
+
+.video-frame {
+  position: relative;
+  background: #000000;
+  border: 2px solid rgba(255, 255, 255, 0.18);
+  border-radius: var(--r-sm);
+  aspect-ratio: 16 / 9;
   overflow: hidden;
+  box-shadow: inset 0 2px 8px rgba(0, 0, 0, 0.6);
 }
 
 .video-frame video {
   width: 100%;
   height: 100%;
-  border-radius: var(--r-sm);
-  background: #000;
   object-fit: cover;
   display: block;
+}
+
+.console-spark {
+  position: absolute;
+  color: var(--sun);
+  font-size: 2.6rem;
+  pointer-events: none;
+  text-shadow: 0 3px 0 var(--ink);
+  animation: sparkle 2s ease-in-out infinite alternate;
+}
+
+.console-spark--one {
+  top: -14px;
+  right: -10px;
+}
+
+.console-spark--two {
+  bottom: -16px;
+  left: -12px;
+  color: var(--coral);
+  animation-delay: -1s;
 }
 
 /* 11. Services Page */
