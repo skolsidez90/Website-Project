@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Book a pickup | Scrub-a-dub Laundry</title>
 <meta name="description" content="Book a laundry pickup in Cebu City.">
-<link rel="icon" href="assets/logo-small.png">
+<link rel="icon" href="assets/logo-option-4.png">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600&family=Nunito:wght@400;700&display=swap">
 <link rel="stylesheet" href="style.css">
@@ -17,39 +17,48 @@
 <i class="bubble-background__bubble"></i><i class="bubble-background__bubble"></i><i class="bubble-background__bubble"></i><i class="bubble-background__bubble"></i><i class="bubble-background__bubble"></i><i class="bubble-background__bubble"></i><i class="bubble-background__bubble"></i><i class="bubble-background__bubble"></i><i class="bubble-background__bubble"></i><i class="bubble-background__bubble"></i><i class="bubble-background__bubble"></i><i class="bubble-background__bubble"></i><i class="bubble-background__bubble"></i><i class="bubble-background__bubble"></i>
 </div>
 <header class="site-header"><div class="wrap bar">
-<a class="brand" href="index.html"><img src="assets/logo-small.png" alt="Scrub-a-dub Laundry, home" width="180" height="48"></a>
+<a class="brand" href="index.html"><img class="brand-mark" src="assets/logo-option-4.png" alt=""><span>Scrub-a-Dub Laundry</span></a>
 <button id="nav-toggle" class="nav-toggle" aria-expanded="false" aria-controls="nav">Menu</button>
 <nav id="nav" class="nav" aria-label="Main"><a href="index.html">Home</a><a href="services.html">Services</a><a href="order.html">Book a pickup</a><a href="about.html">About</a></nav>
 </div></header>
 <p id="loading" class="loading" role="status">Loading page features...</p>
 <main>
 
-<section class="section"><div class="wrap grid12" style="align-items:start">
-<div class="c-7"><h1>Book a pickup</h1><p>Fill in the form and we'll get your laundry on the schedule.</p>
+<section class="booking-hero"><div class="wrap">
+<div class="booking-heading"><span class="eyebrow">Laundry day, made easier</span><h1>Book a pickup</h1><p>Tell us where and when to collect your laundry. It only takes a minute.</p><div class="booking-pills"><span>📍 Cebu City</span><span>🕗 Daily, 8:00 AM–7:00 PM</span></div></div>
+<div class="booking-layout">
+<section class="booking-form-card" aria-labelledby="booking-form-title">
+<div class="booking-card-heading"><span class="step-chip">1</span><div><h2 id="booking-form-title">Pickup details</h2><p>We'll use these details to arrange your collection.</p></div></div>
 <form id="booking-form" novalidate>
-<div class="field" id="f-name"><label for="b-name">Full name</label><input id="b-name" class="in" type="text" autocomplete="name"><p class="err" id="e-name"></p></div>
+<div class="booking-fields">
+<div class="field" id="f-name"><label for="b-name">Full name</label><input id="b-name" class="in" type="text" autocomplete="name" placeholder="e.g. Juan dela Cruz"><p class="err" id="e-name"></p></div>
 <div class="field" id="f-phone"><label for="b-phone">Mobile number</label><input id="b-phone" class="in" type="tel" placeholder="09XX XXX XXXX" autocomplete="tel"><p class="err" id="e-phone"></p></div>
-<div class="field" id="f-address"><label for="b-address">Pickup address</label><input id="b-address" class="in" type="text" placeholder="Street, barangay" autocomplete="street-address"><p class="err" id="e-address"></p></div>
-<div class="field"><label for="b-service">Service</label><select id="b-service" class="in"><option value="wash">Wash and fold</option><option value="dry">Dry cleaning</option><option value="iron">Ironing</option><option value="bed">Bedding</option></select></div>
-<div class="field" id="f-date"><label for="b-date">Pickup date</label><input id="b-date" class="in" type="date"><p class="err" id="e-date"></p></div>
-<div class="field"><label for="b-notes">Notes (optional)</label><textarea id="b-notes" class="in" rows="3"></textarea></div>
-<button class="btn" type="submit">Confirm booking</button></form></div>
-<div class="c-5"><aside id="confirmation" class="confirm" tabindex="-1" aria-live="polite">
-<p id="c-empty">Your booking will show up here after you send the form.</p>
+<div class="field booking-wide" id="f-address"><label for="b-address">Pickup address</label><input id="b-address" class="in" type="text" placeholder="House / building, street, barangay" autocomplete="street-address"><p class="err" id="e-address"></p></div>
+<div class="field"><label for="b-service">Laundry service</label><select id="b-service" class="in"><option value="wash">Wash and fold</option><option value="dry">Dry cleaning</option><option value="iron">Ironing</option><option value="bed">Bedding</option></select></div>
+<div class="field" id="f-date"><label for="b-date">Preferred pickup date</label><input id="b-date" class="in" type="date"><p class="err" id="e-date"></p></div>
+<div class="field booking-wide"><label for="b-notes">Pickup notes <span class="label-soft">(optional)</span></label><textarea id="b-notes" class="in" rows="3" placeholder="Gate instructions, landmarks, or anything we should know"></textarea></div>
+</div>
+<div class="booking-submit"><p>Submitting creates a demo booking summary on this page.</p><button class="btn" type="submit">Request my pickup <span aria-hidden="true">→</span></button></div>
+</form></section>
+<div class="booking-side">
+<section class="next-card"><div class="booking-card-heading"><span class="step-chip step-chip--sun">2</span><div><h2>What happens next?</h2><p>A simple plan from pickup to fresh laundry.</p></div></div>
+<ol class="pickup-steps"><li><span>01</span><div><h3>We receive your request</h3><p>Your details appear in the confirmation card below.</p></div></li><li><span>02</span><div><h3>We confirm the pickup</h3><p>In a real service, the team would contact you to confirm.</p></div></li><li><span>03</span><div><h3>We clean and return</h3><p>Your laundry is cared for and ready to feel fresh.</p></div></li></ol></section>
+<aside id="confirmation" class="confirm booking-confirm" tabindex="-1" aria-live="polite"><div class="confirm-top"><span class="confirm-icon" aria-hidden="true">✓</span><div><span class="eyebrow">Booking preview</span><h2>Your pickup</h2></div></div>
+<p id="c-empty" class="confirm-empty">Complete the form and your booking summary will appear here.</p>
 <div id="ticket" class="ticket" hidden><span class="stamp">BOOKED</span><h3>Thanks, <span id="c-name"></span></h3><dl>
 <div class="line"><dt>Reference</dt><dd id="c-ref"></dd></div>
 <div class="line"><dt>Service</dt><dd id="c-service"></dd></div>
 <div class="line"><dt>Pickup date</dt><dd id="c-date"></dd></div></dl>
-<p class="small mt">School demo: nothing is sent anywhere. In real use the shop would call to confirm.</p></div>
+<p class="small mt">Demo only: this request is not sent to a real laundry service.</p></div>
 </aside></div></div></section>
 </main>
 <footer class="site-footer"><div class="wrap footer-wrap">
 <div class="footer-grid">
-<section class="footer-brand"><img src="assets/logo-small.png" alt="Scrub-a-dub Laundry" width="180" height="48"><p>Laundry pickup and delivery in Cebu City.</p></section>
+<section class="footer-brand"><img src="assets/logo-option-4.png" alt="Scrub-a-Dub Laundry logo" width="96" height="96"><p>Laundry pickup and delivery in Cebu City.</p></section>
 <section class="footer-column"><h2>Location</h2><address>F. Flamas Street<br>Cebu City</address></section>
 <section class="footer-column"><h2>Contact</h2><p><a href="tel:+639124568271">0912 456 8271</a><a href="mailto:ScrubADub@gmail.com">ScrubADub@gmail.com</a></p></section>
 <section class="footer-column"><h2>Business hours</h2><p>8:00 AM–7:00 PM</p></section>
-</div>
+</div><div class="footer-bottom"><span>© 2026 Scrub-a-dub Laundry</span><span>Website by <strong>Agura's Team</strong></span></div>
 </div></footer>
 <script type="py" config="./pyscript.toml">
 import nav, booking, background_bubbles
